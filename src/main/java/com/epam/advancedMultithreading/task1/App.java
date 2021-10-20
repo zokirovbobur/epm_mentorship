@@ -7,7 +7,7 @@ public class App {
     public static void main(String[] args) {
         System.out.println("Sequental");
         long start = System.nanoTime();
-        System.out.println(SequentialFactorial.calculateFactorial(BigInteger.valueOf(10)));
+        System.out.println(FactorialTask.calculateFactorial(BigInteger.valueOf(10)));
         long end = System.nanoTime();
         long time_sequential = end - start;
         System.out.println(time_sequential + " nanoseconds for sequential");

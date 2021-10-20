@@ -1,9 +1,28 @@
 package com.epam.advancedMultithreading.task1;
 
 import java.math.BigInteger;
+import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveTask;
 
 class FactorialTask extends RecursiveTask<BigInteger> {
+
+	public static void main(String[] args) {
+		System.out.println("Sequental");
+		long start = System.nanoTime();
+		System.out.println(calculateFactorial(BigInteger.valueOf(10)));
+		long end = System.nanoTime();
+		long time_sequential = end - start;
+		System.out.println(time_sequential + " nanoseconds for sequential");
+
+		System.out.println("FJP");
+		ForkJoinPool forkJoinPool = ForkJoinPool.commonPool();
+		start = System.nanoTime();
+		System.out.println(forkJoinPool.invoke(new FactorialTask(BigInteger.valueOf(10))));
+		end = System.nanoTime();
+		long time_fjp = end - start;
+		System.out.println(time_fjp + " nanoseconds for FJP");
+		System.out.println("difference of execution times: " + (time_sequential - time_fjp) + " nanoseconds");
+	}
 
 	private BigInteger number;
 
@@ -21,14 +40,7 @@ class FactorialTask extends RecursiveTask<BigInteger> {
 		return number.multiply(subtask.join());
 	}
 
-	public BigInteger factorialHavingLargeResult(int n) {
-		BigInteger result = BigInteger.ONE;
-		for (int i = 2; i <= n; i++)
-			result = result.multiply(BigInteger.valueOf(i));
-		return result;
-	}
-
-	private static BigInteger calculateFactorial(BigInteger n) {
+	public static BigInteger calculateFactorial(BigInteger n) {
 		if (n.compareTo(BigInteger.valueOf(2)) <= 0) {
 			return n;
 		}
