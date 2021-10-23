@@ -3,7 +3,7 @@ package com.epam.advancedMultithreading.task1;
 import java.math.BigInteger;
 import java.util.concurrent.ForkJoinPool;
 
-public class App {
+public class Task1Main {
     public static void main(String[] args) {
         System.out.println("Sequental");
         long start = System.nanoTime();
