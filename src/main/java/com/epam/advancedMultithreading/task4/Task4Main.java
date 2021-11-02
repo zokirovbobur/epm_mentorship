@@ -11,7 +11,6 @@ public class Task4Main {
 		CompletableFuture<List<Employee>> c1 = hiredEmployees.toCompletableFuture();
 		CompletableFuture<List<Employee>> c2 = filledEmployees.toCompletableFuture();
 
-
 		c1.join();
 		c2.join();
 
