@@ -7,9 +7,7 @@ import org.hibernate.Hibernate;
 import javax.persistence.Entity;
 import java.time.LocalDateTime;
 import java.util.Objects;
-
 @Getter
-@Setter
 @ToString
 @RequiredArgsConstructor
 @Entity
@@ -26,6 +24,18 @@ public class EventEntity extends BaseEntity{
 	private int limitOfTicket;
 
 	private double ticketPrice;
+
+	public EventEntity(String eventName, LocalDateTime startDate, LocalDateTime endDate, int limitOfTicket, double ticketPrice) {
+		this.eventName = eventName;
+		this.startDate = startDate;
+		this.endDate = endDate;
+		this.limitOfTicket = limitOfTicket;
+		this.ticketPrice = ticketPrice;
+	}
+
+	public void decrementTicket(){
+		--this.limitOfTicket;
+	}
 
 	@Override
 	public boolean equals(Object o) {

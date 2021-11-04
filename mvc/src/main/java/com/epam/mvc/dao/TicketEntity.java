@@ -22,6 +22,11 @@ public class TicketEntity extends BaseEntity{
 	@ManyToOne
 	private UserEntity attendee;
 
+	public TicketEntity(EventEntity event, UserEntity attendee) {
+		this.event = event;
+		this.attendee = attendee;
+	}
+
 	@Override
 	public boolean equals(Object o) {
 		if (this == o) return true;

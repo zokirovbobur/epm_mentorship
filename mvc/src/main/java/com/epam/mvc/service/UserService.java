@@ -32,4 +32,8 @@ public class UserService implements GeneralService<UserEntity> {
 	public List<UserEntity> getAll() {
 		return repository.findAll();
 	}
+
+	public void removeById(Long id){
+		repository.deleteById(id);
+	}
 }

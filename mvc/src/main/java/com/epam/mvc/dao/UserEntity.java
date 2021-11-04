@@ -3,7 +3,6 @@ package com.epam.mvc.dao;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 import org.hibernate.Hibernate;
 
 import javax.persistence.Entity;
@@ -11,7 +10,6 @@ import java.util.Objects;
 
 @Getter
 @Setter
-@ToString
 @RequiredArgsConstructor
 @Entity
 public class UserEntity extends BaseEntity{
@@ -37,5 +35,13 @@ public class UserEntity extends BaseEntity{
 	@Override
 	public int hashCode() {
 		return getClass().hashCode();
+	}
+
+	@Override
+	public String toString() {
+		return "UserEntity{" +
+				       "fullName='" + fullName + '\'' +
+				       ", userName='" + userName + '\'' +
+				       '}';
 	}
 }

@@ -12,7 +12,7 @@ public class TestController {
 	private Logger logger = LoggerFactory.getLogger(TestController.class);
 	@GetMapping
 	public String getTest(){
-		logger.info("hw");
+		logger.info("testing get request");
 		return "GetTest";
 	}
 }
