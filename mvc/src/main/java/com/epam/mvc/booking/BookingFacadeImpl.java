@@ -17,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
@@ -105,6 +106,7 @@ public class BookingFacadeImpl implements BookingFacade{
 	}
 
 	@PostConstruct
+	@Transactional
 	public void preloadTickets(){
 		log.info("creating initial events data");
 		List<EventEntity> eventEntities = EventsInit.convertXMLToEvents();
