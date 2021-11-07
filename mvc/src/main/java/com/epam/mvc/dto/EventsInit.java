@@ -30,10 +30,14 @@ public class EventsInit {
 	private static final String EVENTS_XML = "mvc/src/main/resources/events-init.xml";
 
 	public static List<EventEntity> convertXMLToEvents() {
+		return convertXMLToEvents(EVENTS_XML);
+	}
+
+	public static List<EventEntity> convertXMLToEvents(String fileUri) {
 		try {
 			JAXBContext context = JAXBContext.newInstance(EventsInit.class);
 			Unmarshaller un = context.createUnmarshaller();
-			EventsInit eventsInit = (EventsInit) un.unmarshal(new File(EVENTS_XML));
+			EventsInit eventsInit = (EventsInit) un.unmarshal(new File(fileUri));
 			List<Event> events = eventsInit.getEventList();
 			List<EventEntity> eventEntities = new ArrayList<>();
 			for (Event event: events) {

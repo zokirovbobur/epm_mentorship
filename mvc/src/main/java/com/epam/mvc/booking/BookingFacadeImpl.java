@@ -108,9 +108,7 @@ public class BookingFacadeImpl implements BookingFacade{
 	public void preloadTickets(){
 		log.info("creating initial events data");
 		List<EventEntity> eventEntities = EventsInit.convertXMLToEvents();
-		eventEntities.forEach(event -> {
-			eventService.save(event);
-		});
+		eventEntities.forEach(event -> eventService.save(event));
 		log.info("created initial events data");
 	}
 }
