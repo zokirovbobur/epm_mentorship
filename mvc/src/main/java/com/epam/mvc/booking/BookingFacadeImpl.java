@@ -105,52 +105,12 @@ public class BookingFacadeImpl implements BookingFacade{
 	}
 
 	@PostConstruct
-	public void createInitData(){
+	public void preloadTickets(){
 		log.info("creating initial events data");
 		List<EventEntity> eventEntities = EventsInit.convertXMLToEvents();
 		eventEntities.forEach(event -> {
 			eventService.save(event);
 		});
-		/*
-
-		EventEntity eventForPair = new EventEntity(
-				"Marry me celebration",
-				"12.11.2021 18:00:00",
-				"12.11.2021 21:00:00",
-				2,
-				200.00
-		);
-
-		EventEntity eventHalloween = new EventEntity(
-				"Halloween",
-				"31.10.2021 20:00:00",
-				"31.10.2021 23:00:00",
-				1000,
-				200.00
-		);
-
-		EventEntity event11 = new EventEntity(
-				"Singles' day",
-				"11.11.2021 20:00:00",
-				"11.11.2021 23:00:00",
-				100,
-				500.00
-		);
-
-		EventEntity eventNewYear = new EventEntity(
-				"New Year",
-				"31.12.2021 20:00:00",
-				"01.01.2022 02:00:00",
-				1000,
-				1000.00
-		);
-
-		eventService.save(eventForPair);
-		eventService.save(eventHalloween);
-		eventService.save(event11);
-		eventService.save(eventNewYear);
-
-		 */
 		log.info("created initial events data");
 	}
 }
