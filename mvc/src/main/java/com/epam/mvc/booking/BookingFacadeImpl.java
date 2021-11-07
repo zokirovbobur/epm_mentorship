@@ -3,11 +3,13 @@ package com.epam.mvc.booking;
 import com.epam.mvc.dao.EventEntity;
 import com.epam.mvc.dao.TicketEntity;
 import com.epam.mvc.dao.UserEntity;
+import com.epam.mvc.dto.EventsInit;
 import com.epam.mvc.dto.GeneralAnswer;
 import com.epam.mvc.dto.UserDto;
 import com.epam.mvc.service.EventService;
 import com.epam.mvc.service.TicketService;
 import com.epam.mvc.service.UserService;
+import javafx.event.EventHandler;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,7 +17,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -106,31 +107,40 @@ public class BookingFacadeImpl implements BookingFacade{
 	@PostConstruct
 	public void createInitData(){
 		log.info("creating initial events data");
+		List<EventEntity> eventEntities = EventsInit.convertXMLToEvents();
+		eventEntities.forEach(event -> {
+			eventService.save(event);
+		});
+		/*
 
-		EventEntity eventForPair = new EventEntity("Marry me celebration",
-				LocalDateTime.of(2021,11, 12, 18, 0, 0),
-				LocalDateTime.of(2021,11, 12, 21, 59, 59),
+		EventEntity eventForPair = new EventEntity(
+				"Marry me celebration",
+				"12.11.2021 18:00:00",
+				"12.11.2021 21:00:00",
 				2,
 				200.00
 		);
 
-		EventEntity eventHalloween = new EventEntity("Halloween",
-				LocalDateTime.of(2021,10, 31, 20, 0, 0),
-				LocalDateTime.of(2021,10, 31, 23, 59, 59),
+		EventEntity eventHalloween = new EventEntity(
+				"Halloween",
+				"31.10.2021 20:00:00",
+				"31.10.2021 23:00:00",
 				1000,
 				200.00
 		);
 
-		EventEntity event11 = new EventEntity("Singles' day",
-				LocalDateTime.of(2021,11, 11, 20, 0, 0),
-				LocalDateTime.of(2021,11, 11, 23, 59, 59),
+		EventEntity event11 = new EventEntity(
+				"Singles' day",
+				"11.11.2021 20:00:00",
+				"11.11.2021 23:00:00",
 				100,
 				500.00
 		);
 
-		EventEntity eventNewYear = new EventEntity("New Year",
-				LocalDateTime.of(2021,12, 31, 20, 0, 0),
-				LocalDateTime.of(2022,1, 1, 4, 0, 0),
+		EventEntity eventNewYear = new EventEntity(
+				"New Year",
+				"31.12.2021 20:00:00",
+				"01.01.2022 02:00:00",
 				1000,
 				1000.00
 		);
@@ -139,6 +149,8 @@ public class BookingFacadeImpl implements BookingFacade{
 		eventService.save(eventHalloween);
 		eventService.save(event11);
 		eventService.save(eventNewYear);
+
+		 */
 		log.info("created initial events data");
 	}
 }

@@ -1,11 +1,11 @@
 package com.epam.mvc.dao;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import lombok.*;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.ToString;
 import org.hibernate.Hibernate;
 
 import javax.persistence.Entity;
-import java.time.LocalDateTime;
 import java.util.Objects;
 @Getter
 @ToString
@@ -15,17 +15,15 @@ public class EventEntity extends BaseEntity{
 
 	private String eventName;
 
-	@JsonFormat(pattern = "dd.MM.yyyy HH:mm:ss")
-	private LocalDateTime startDate;
+	private String startDate;
 
-	@JsonFormat(pattern = "dd.MM.yyyy HH:mm:ss")
-	private LocalDateTime endDate;
+	private String endDate;
 
 	private int limitOfTicket;
 
 	private double ticketPrice;
 
-	public EventEntity(String eventName, LocalDateTime startDate, LocalDateTime endDate, int limitOfTicket, double ticketPrice) {
+	public EventEntity(String eventName, String startDate, String endDate, int limitOfTicket, double ticketPrice) {
 		this.eventName = eventName;
 		this.startDate = startDate;
 		this.endDate = endDate;

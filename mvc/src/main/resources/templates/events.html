@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Getting Started: Serving Web Content</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <table>
+        <thead>
+        <tr>
+            <th> Id </th>
+            <th> Event Name </th>
+            <th> Starting date </th>
+            <th> Ending date </th>
+            <th> Ticket limit </th>
+            <th> Ticket priceч </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:if="${events.empty}">
+            <td colspan="2"> No Event Available </td>
+        </tr>
+        <tr th:each="event : ${events}">
+            <td><span th:text="${event.id}"> Id </span></td>
+            <td><span th:text="${event.eventName}"> event name </span></td>
+            <td><span th:text="${event.startDate}"> event name </span></td>
+            <td><span th:text="${event.endDate}"> event name </span></td>
+            <td><span th:text="${event.limitOfTicket}"> event name </span></td>
+            <td><span th:text="${event.ticketPrice}"> event name </span></td>
+        </tr>
+        </tbody>
+    </table>
+    <a href="/pdfreport">Booked tickets</a>
+</body>
+</html>
