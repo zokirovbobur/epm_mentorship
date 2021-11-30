@@ -7,9 +7,10 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="task1" />
-        <module name="springboot" />
         <module name="mvc" />
+        <module name="task1" />
+        <module name="task2" />
+        <module name="springboot" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -20,6 +21,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="mvc" options="-parameters" />
       <module name="task1" options="-parameters" />
+      <module name="task2" options="-parameters" />
     </option>
   </component>
 </project>

@@ -1,7 +1,6 @@
-package com.epam.mvc.service;
+package com.epam.task2;
 
-import com.epam.mvc.dao.UserEntity;
-import com.epam.mvc.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,11 +9,8 @@ import java.util.Optional;
 @Service
 public class UserService implements GeneralService<UserEntity> {
 
-	private final UserRepository repository;
-
-	public UserService(UserRepository repository) {
-		this.repository = repository;
-	}
+	@Autowired
+	private UserRepository repository;
 
 	public Optional<UserEntity> findByUserName(String userName){
 		return repository.findByUserName(userName);
