@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:eventsInit
+        xmlns:ns2="net.javaguides.javaxmlparser.jaxb">
+    <eventList>
+        <event>
+            <eventName>Marry me celebration</eventName>
+            <startDate>12.11.2021 18:00:00</startDate>
+            <endDate>12.11.2021 21:00:00</endDate>
+            <limitOfTicket>2</limitOfTicket>
+            <ticketPrice>200.00</ticketPrice>
+        </event>
+        <event>
+            <eventName>Halloween</eventName>
+            <startDate>31.10.2021 20:00:00</startDate>
+            <endDate>31.10.2021 23:00:00</endDate>
+            <limitOfTicket>1000</limitOfTicket>
+            <ticketPrice>200.00</ticketPrice>
+        </event>
+        <event>
+            <eventName>Singles' day</eventName>
+            <startDate>11.11.2021 20:00:00</startDate>
+            <endDate>11.11.2021 23:00:00</endDate>
+            <limitOfTicket>100</limitOfTicket>
+            <ticketPrice>500.00</ticketPrice>
+        </event>
+        <event>
+            <eventName>New Year</eventName>
+            <startDate>31.12.2021 20:00:00</startDate>
+            <endDate>01.01.2022 02:00:00</endDate>
+            <limitOfTicket>1000</limitOfTicket>
+            <ticketPrice>1000.00</ticketPrice>
+        </event>
+    </eventList>
+</ns2:eventsInit>
