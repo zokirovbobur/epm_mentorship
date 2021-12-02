@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="task5" />
+        <module name="task7" />
         <module name="mvc" />
         <module name="task1" />
         <module name="task2" />
@@ -26,6 +27,7 @@
       <module name="task2" options="-parameters" />
       <module name="task3" options="-parameters" />
       <module name="task5" options="-parameters" />
+      <module name="task7" options="-parameters" />
     </option>
   </component>
 </project>
